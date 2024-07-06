@@ -10,6 +10,7 @@ class MainFlutterWindow: NSWindow {
 
     // Set maximum window size
     self.maxSize = NSSize(width: 350, height: 500)
+    self.minSize = NSSize(width: 350, height: 500)
     self.styleMask.remove(.fullScreen)
 
     RegisterGeneratedPlugins(registry: flutterViewController)

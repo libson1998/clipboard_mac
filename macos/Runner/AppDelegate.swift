@@ -19,7 +19,7 @@ class AppDelegate: FlutterAppDelegate {
         setupStatusBarItem()
 
         mainFlutterWindow?.styleMask.remove(.fullScreen)
-
+        setInitialWindowSize()
         super.applicationDidFinishLaunching(aNotification)
     }
 
@@ -53,6 +53,11 @@ class AppDelegate: FlutterAppDelegate {
             lastCopiedText = copiedText
             methodChannel?.invokeMethod("clipboardChanged", arguments: copiedText)
         }
+    }
+
+    private func setInitialWindowSize() {
+        mainFlutterWindow?.setContentSize(NSSize(width: 350, height: 500))
+        mainFlutterWindow?.minSize = NSSize(width: 350, height: 500)
     }
 
     @objc private func togglePopover(sender: AnyObject?) {
