@@ -321,9 +321,9 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///Users/libsongeorge/.pub-cache/hosted/pub.dev/win32-5.5.1",
+      "rootUri": "file:///Users/libsongeorge/.pub-cache/hosted/pub.dev/win32-3.1.4",
       "packageUri": "lib/",
-      "languageVersion": "3.4"
+      "languageVersion": "2.17"
     },
     {
       "name": "xdg_directories",
@@ -350,7 +350,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-07-06T05:48:44.208635Z",
+  "generated": "2024-07-06T20:30:44.549953Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///Users/libsongeorge/flutter",

@@ -26,15 +26,23 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
   Future<dynamic> _handleMethod(MethodCall call) async {
     if (call.method == 'clipboardChanged') {
       setState(() {
-        copiedTexts.add(call.arguments as String);
+        copiedTexts.insert(0, call.arguments as String);
+        _reorderCopiedTexts();
       });
     }
     return null;
   }
-
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _channel.setMethodCallHandler(_handleMethod);
+      _loadFavorites();
+      setState(() {});
+    }
+  }
   void deleteItem(int index) {
     setState(() {
       copiedTexts.removeAt(index);
+      _reorderCopiedTexts();
     });
   }
 
@@ -51,16 +59,24 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
       } else {
         favoriteTexts.add(text);
       }
+      _reorderCopiedTexts();
     });
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setStringList('favorites', favoriteTexts);
   }
 
+  void _reorderCopiedTexts() {
+    final favoriteItems = copiedTexts.where((text) => favoriteTexts.contains(text)).toList();
+    final nonFavoriteItems = copiedTexts.where((text) => !favoriteTexts.contains(text)).toList();
+    copiedTexts = [...favoriteItems, ...nonFavoriteItems];
+  }
+
   void _loadFavorites() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       favoriteTexts = prefs.getStringList('favorites') ?? [];
+      _reorderCopiedTexts();
     });
   }
 
@@ -68,7 +84,6 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.sizeOf(context).width;
     print(screenWidth.toString());
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),

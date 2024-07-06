@@ -280,6 +280,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import AppKit;
 @import FlutterMacOS;
 @import Foundation;
+@import UserNotifications;
 #endif
 
 #endif
@@ -301,11 +302,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 @class NSNotification;
+@class UNUserNotificationCenter;
+@class UNNotificationResponse;
 
 SWIFT_CLASS("_TtC9clipboard11AppDelegate")
-@interface AppDelegate : FlutterAppDelegate
+@interface AppDelegate : FlutterAppDelegate <UNUserNotificationCenterDelegate>
 - (void)applicationDidFinishLaunching:(NSNotification * _Nonnull)aNotification;
 - (void)applicationWillTerminate:(NSNotification * _Nonnull)aNotification;
+- (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center didReceiveNotificationResponse:(UNNotificationResponse * _Nonnull)response withCompletionHandler:(void (^ _Nonnull)(void))completionHandler;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
