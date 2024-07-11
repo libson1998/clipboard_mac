@@ -1,0 +1,60 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/libsongeorge/GitHub/clipboard_mac/build/macos/Build/Products/Release/clipboard.app/Contents/MacOS/clipboard'
+relocations:
+  - { offsetInCU: 0x27, offset: 0xCA0E9, size: 0x8, addend: 0x0, symName: '_$s9clipboard17MainFlutterWindowC12awakeFromNibyyF', symObjAddr: 0x0, symBinAddr: 0x100001840, symSize: 0x1B0 }
+  - { offsetInCU: 0x8E, offset: 0xCA150, size: 0x8, addend: 0x0, symName: '_$s9clipboard17MainFlutterWindowC12awakeFromNibyyFTo', symObjAddr: 0x1B0, symBinAddr: 0x1000019F0, symSize: 0x30 }
+  - { offsetInCU: 0xAA, offset: 0xCA16C, size: 0x8, addend: 0x0, symName: '_$s9clipboard17MainFlutterWindowC16toggleFullScreenyyypSgFTo', symObjAddr: 0x1E0, symBinAddr: 0x100001A20, symSize: 0x70 }
+  - { offsetInCU: 0xF0, offset: 0xCA1B2, size: 0x8, addend: 0x0, symName: '_$s9clipboard17MainFlutterWindowC11contentRect9styleMask7backing5deferACSo6CGRectV_So013NSWindowStyleH0VSo18NSBackingStoreTypeVSbtcfcTo', symObjAddr: 0x250, symBinAddr: 0x100001A90, symSize: 0x80 }
+  - { offsetInCU: 0x169, offset: 0xCA22B, size: 0x8, addend: 0x0, symName: '_$s9clipboard17MainFlutterWindowCMa', symObjAddr: 0x300, symBinAddr: 0x100001B40, symSize: 0x20 }
+  - { offsetInCU: 0x17D, offset: 0xCA23F, size: 0x8, addend: 0x0, symName: '_$sypSgWOh', symObjAddr: 0x3F0, symBinAddr: 0x100001B60, symSize: 0x30 }
+  - { offsetInCU: 0x191, offset: 0xCA253, size: 0x8, addend: 0x0, symName: ___swift_instantiateConcreteTypeFromMangledName, symObjAddr: 0x420, symBinAddr: 0x100001B90, symSize: 0x40 }
+  - { offsetInCU: 0x3DF, offset: 0xCA4A1, size: 0x8, addend: 0x0, symName: '_$s9clipboard17MainFlutterWindowC12awakeFromNibyyF', symObjAddr: 0x0, symBinAddr: 0x100001840, symSize: 0x1B0 }
+  - { offsetInCU: 0x519, offset: 0xCA5DB, size: 0x8, addend: 0x0, symName: '_$s9clipboard17MainFlutterWindowCfD', symObjAddr: 0x2D0, symBinAddr: 0x100001B10, symSize: 0x30 }
+  - { offsetInCU: 0x2B, offset: 0xCA65E, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC29applicationDidFinishLaunchingyy10Foundation12NotificationVF', symObjAddr: 0x0, symBinAddr: 0x100001BD0, symSize: 0x380 }
+  - { offsetInCU: 0xFD, offset: 0xCA730, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC29applicationDidFinishLaunchingyy10Foundation12NotificationVFTo', symObjAddr: 0x4F0, symBinAddr: 0x1000020C0, symSize: 0x80 }
+  - { offsetInCU: 0x14A, offset: 0xCA77D, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC24applicationWillTerminateyy10Foundation12NotificationVFTo', symObjAddr: 0x570, symBinAddr: 0x100002140, symSize: 0x90 }
+  - { offsetInCU: 0x2A8, offset: 0xCA8DB, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC14checkClipboard33_7C21F169C883862B33EAF6F0A79CF403LLyyFTo', symObjAddr: 0xBE0, symBinAddr: 0x1000027B0, symSize: 0x30 }
+  - { offsetInCU: 0x2DF, offset: 0xCA912, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC13togglePopover33_7C21F169C883862B33EAF6F0A79CF403LL6senderyyXlSg_tFTo', symObjAddr: 0xD60, symBinAddr: 0x100002930, symSize: 0x50 }
+  - { offsetInCU: 0x336, offset: 0xCA969, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC22userNotificationCenter_10didReceive21withCompletionHandlerySo06UNUsereF0C_So22UNNotificationResponseCyyctFTo', symObjAddr: 0xDB0, symBinAddr: 0x100002980, symSize: 0xC0 }
+  - { offsetInCU: 0x3AE, offset: 0xCA9E1, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateCACycfcTo', symObjAddr: 0xF10, symBinAddr: 0x100002AE0, symSize: 0x20 }
+  - { offsetInCU: 0x426, offset: 0xCAA59, size: 0x8, addend: 0x0, symName: '_$sSbs5Error_pSgIegyg_10ObjectiveC8ObjCBoolVSo7NSErrorCSgIeyByy_TR', symObjAddr: 0x490, symBinAddr: 0x100002060, symSize: 0x60 }
+  - { offsetInCU: 0x4A4, offset: 0xCAAD7, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateCfETo', symObjAddr: 0xF60, symBinAddr: 0x100002B30, symSize: 0x80 }
+  - { offsetInCU: 0x4F5, offset: 0xCAB28, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI29NSViewControllerRepresentableAadEP04makegH07context0gH4TypeQzAD0ghI7ContextVyxG_tFTW', symObjAddr: 0xFE0, symBinAddr: 0x100002BB0, symSize: 0x10 }
+  - { offsetInCU: 0x527, offset: 0xCAB5A, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI29NSViewControllerRepresentableAadEP06updategH0_7contexty0gH4TypeQz_AD0ghI7ContextVyxGtFTW', symObjAddr: 0xFF0, symBinAddr: 0x100002BC0, symSize: 0x10 }
+  - { offsetInCU: 0x544, offset: 0xCAB77, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1130, symBinAddr: 0x100002D00, symSize: 0x10 }
+  - { offsetInCU: 0x562, offset: 0xCAB95, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateCMa', symObjAddr: 0x1140, symBinAddr: 0x100002D10, symSize: 0x20 }
+  - { offsetInCU: 0x697, offset: 0xCACCA, size: 0x8, addend: 0x0, symName: _block_copy_helper, symObjAddr: 0x1D60, symBinAddr: 0x1000038F0, symSize: 0x20 }
+  - { offsetInCU: 0x6AB, offset: 0xCACDE, size: 0x8, addend: 0x0, symName: _block_destroy_helper, symObjAddr: 0x1D80, symBinAddr: 0x100003910, symSize: 0x10 }
+  - { offsetInCU: 0x6BF, offset: 0xCACF2, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperVMa', symObjAddr: 0x1D90, symBinAddr: 0x100003920, symSize: 0x10 }
+  - { offsetInCU: 0x6D3, offset: 0xCAD06, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI0C0AA4BodyAdEP_AGWT', symObjAddr: 0x1DA0, symBinAddr: 0x100003930, symSize: 0x10 }
+  - { offsetInCU: 0x6E7, offset: 0xCAD1A, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI29NSViewControllerRepresentableAaD0C0PWb', symObjAddr: 0x1DB0, symBinAddr: 0x100003940, symSize: 0x10 }
+  - { offsetInCU: 0x6FB, offset: 0xCAD2E, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperVAC7SwiftUI0C0AAWl', symObjAddr: 0x1DC0, symBinAddr: 0x100003950, symSize: 0x30 }
+  - { offsetInCU: 0x70F, offset: 0xCAD42, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperVAC7SwiftUI29NSViewControllerRepresentableAAWl', symObjAddr: 0x1DF0, symBinAddr: 0x100003980, symSize: 0x30 }
+  - { offsetInCU: 0xA7F, offset: 0xCB0B2, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI29NSViewControllerRepresentableAadEP09dismantlegH0_11coordinatory0gH4TypeQz_11CoordinatorQztFZTW', symObjAddr: 0x1000, symBinAddr: 0x100002BD0, symSize: 0x10 }
+  - { offsetInCU: 0xA9B, offset: 0xCB0CE, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI29NSViewControllerRepresentableAadEP15makeCoordinator0K0QzyFTW', symObjAddr: 0x1010, symBinAddr: 0x100002BE0, symSize: 0x10 }
+  - { offsetInCU: 0xAB7, offset: 0xCB0EA, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI29NSViewControllerRepresentableAadEP011_identifiedC4Tree2inAD011_IdentifiedcK0O0gH4TypeQz_tFTW', symObjAddr: 0x1020, symBinAddr: 0x100002BF0, symSize: 0x10 }
+  - { offsetInCU: 0xAD3, offset: 0xCB106, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI29NSViewControllerRepresentableAadEP12sizeThatFits_02nscH07contextSo6CGSizeVSgAD08ProposedC4SizeV_0gH4TypeQzAD0ghI7ContextVyxGtFTW', symObjAddr: 0x1030, symBinAddr: 0x100002C00, symSize: 0x30 }
+  - { offsetInCU: 0xAEF, offset: 0xCB122, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI29NSViewControllerRepresentableAadEP35_invalidatesSizeOnConstraintChangesSbvgZTW', symObjAddr: 0x1060, symBinAddr: 0x100002C30, symSize: 0x10 }
+  - { offsetInCU: 0xB0B, offset: 0xCB13E, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI29NSViewControllerRepresentableAadEP14_layoutOptionsyAD09_Platformci6LayoutK0V0gH4TypeQzFZTW', symObjAddr: 0x1070, symBinAddr: 0x100002C40, symSize: 0x10 }
+  - { offsetInCU: 0xB27, offset: 0xCB15A, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI0C0AadEP05_makeC04view6inputsAD01_C7OutputsVAD11_GraphValueVyxG_AD01_C6InputsVtFZTW', symObjAddr: 0x1080, symBinAddr: 0x100002C50, symSize: 0x40 }
+  - { offsetInCU: 0xB43, offset: 0xCB176, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI0C0AadEP05_makeC4List4view6inputsAD01_cH7OutputsVAD11_GraphValueVyxG_AD01_cH6InputsVtFZTW', symObjAddr: 0x10C0, symBinAddr: 0x100002C90, symSize: 0x40 }
+  - { offsetInCU: 0xB5F, offset: 0xCB192, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI0C0AadEP14_viewListCount6inputsSiSgAD01_chI6InputsV_tFZTW', symObjAddr: 0x1100, symBinAddr: 0x100002CD0, symSize: 0x10 }
+  - { offsetInCU: 0xB7B, offset: 0xCB1AE, size: 0x8, addend: 0x0, symName: '_$s9clipboard18FlutterViewWrapperV7SwiftUI0C0AadEP4body4BodyQzvgTW', symObjAddr: 0x1110, symBinAddr: 0x100002CE0, symSize: 0x20 }
+  - { offsetInCU: 0xE65, offset: 0xCB498, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC29applicationDidFinishLaunchingyy10Foundation12NotificationVF', symObjAddr: 0x0, symBinAddr: 0x100001BD0, symSize: 0x380 }
+  - { offsetInCU: 0xFB3, offset: 0xCB5E6, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC29applicationDidFinishLaunchingyy10Foundation12NotificationVFySb_s5Error_pSgtcfU_', symObjAddr: 0x380, symBinAddr: 0x100001F50, symSize: 0x110 }
+  - { offsetInCU: 0x11D8, offset: 0xCB80B, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC18setupStatusBarItem33_7C21F169C883862B33EAF6F0A79CF403LLyyF', symObjAddr: 0x600, symBinAddr: 0x1000021D0, symSize: 0x270 }
+  - { offsetInCU: 0x13B8, offset: 0xCB9EB, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC14checkClipboard33_7C21F169C883862B33EAF6F0A79CF403LLyyF', symObjAddr: 0x870, symBinAddr: 0x100002440, symSize: 0x280 }
+  - { offsetInCU: 0x14F0, offset: 0xCBB23, size: 0x8, addend: 0x0, symName: '_$sSh8containsySbxFSS_Tg5', symObjAddr: 0xAF0, symBinAddr: 0x1000026C0, symSize: 0xF0 }
+  - { offsetInCU: 0x154D, offset: 0xCBB80, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateC13togglePopover33_7C21F169C883862B33EAF6F0A79CF403LL6senderyyXlSg_tF', symObjAddr: 0xC10, symBinAddr: 0x1000027E0, symSize: 0x150 }
+  - { offsetInCU: 0x1638, offset: 0xCBC6B, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateCACycfc', symObjAddr: 0xE70, symBinAddr: 0x100002A40, symSize: 0xA0 }
+  - { offsetInCU: 0x165B, offset: 0xCBC8E, size: 0x8, addend: 0x0, symName: '_$s9clipboard11AppDelegateCfD', symObjAddr: 0xF30, symBinAddr: 0x100002B00, symSize: 0x30 }
+  - { offsetInCU: 0x169E, offset: 0xCBCD1, size: 0x8, addend: 0x0, symName: '_$sSh8_VariantV6insertySb8inserted_x17memberAfterInserttxnFSS_Tg5', symObjAddr: 0x1160, symBinAddr: 0x100002D30, symSize: 0x210 }
+  - { offsetInCU: 0x1780, offset: 0xCBDB3, size: 0x8, addend: 0x0, symName: '_$ss10_NativeSetV9insertNew_2at8isUniqueyxn_s10_HashTableV6BucketVSbtFSS_Tg5', symObjAddr: 0x1370, symBinAddr: 0x100002F40, symSize: 0x190 }
+  - { offsetInCU: 0x1826, offset: 0xCBE59, size: 0x8, addend: 0x0, symName: '_$ss10_NativeSetV4copyyyFSS_Tg5', symObjAddr: 0x1500, symBinAddr: 0x1000030D0, symSize: 0x200 }
+  - { offsetInCU: 0x18AC, offset: 0xCBEDF, size: 0x8, addend: 0x0, symName: '_$ss10_NativeSetV13copyAndResize8capacityySi_tFSS_Tg5', symObjAddr: 0x1700, symBinAddr: 0x1000032D0, symSize: 0x2F0 }
+  - { offsetInCU: 0x195E, offset: 0xCBF91, size: 0x8, addend: 0x0, symName: '_$ss10_NativeSetV6resize8capacityySi_tFSS_Tg5', symObjAddr: 0x19F0, symBinAddr: 0x1000035C0, symSize: 0x330 }
+  - { offsetInCU: 0x2B, offset: 0xCC0F6, size: 0x8, addend: 0x0, symName: '_$s9clipboard19ResourceBundleClass33_798538FBECDD125A2DAFF8753739DB0DLLCfD', symObjAddr: 0x0, symBinAddr: 0x100003A00, symSize: 0x20 }
+  - { offsetInCU: 0x6D, offset: 0xCC138, size: 0x8, addend: 0x0, symName: '_$s9clipboard19ResourceBundleClass33_798538FBECDD125A2DAFF8753739DB0DLLCMa', symObjAddr: 0x20, symBinAddr: 0x100003A20, symSize: 0x14 }
+  - { offsetInCU: 0x189, offset: 0xCC254, size: 0x8, addend: 0x0, symName: '_$s9clipboard19ResourceBundleClass33_798538FBECDD125A2DAFF8753739DB0DLLCfD', symObjAddr: 0x0, symBinAddr: 0x100003A00, symSize: 0x20 }
+...

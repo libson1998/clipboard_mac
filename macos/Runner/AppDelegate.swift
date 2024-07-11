@@ -11,6 +11,7 @@ class AppDelegate: FlutterAppDelegate, UNUserNotificationCenterDelegate {
     private var statusItem: NSStatusItem?
     private var popover: NSPopover?
     private var flutterViewController: FlutterViewController?
+    private var copiedItems: Set<String> = []  // Use a Set to keep track of copied items
 
     override func applicationDidFinishLaunching(_ aNotification: Notification) {
         flutterViewController = mainFlutterWindow?.contentViewController as? FlutterViewController
@@ -34,6 +35,7 @@ class AppDelegate: FlutterAppDelegate, UNUserNotificationCenterDelegate {
         super.applicationDidFinishLaunching(aNotification)
     }
 
+
     private func bringToFront() {
         NSApp.activate(ignoringOtherApps: true)
     }
@@ -54,11 +56,8 @@ class AppDelegate: FlutterAppDelegate, UNUserNotificationCenterDelegate {
             } else {
                 button.image = NSImage(named: NSImage.Name("NSMenuOnStateTemplate"))
             }
-               button.action = #selector(AppDelegate.togglePopover(sender:))
-               button.target = self // Ensure the target is set to the AppDelegate instance
-        popover = NSPopover()
-        popover?.behavior = .transient
-        popover?.contentViewController = NSHostingController(rootView: FlutterViewWrapper(flutterViewController: flutterViewController!))
+            button.action = #selector(AppDelegate.togglePopover(sender:))
+            button.target = self // Ensure the target is set to the AppDelegate instance
         }
 
         popover = NSPopover()
@@ -69,8 +68,11 @@ class AppDelegate: FlutterAppDelegate, UNUserNotificationCenterDelegate {
     @objc private func checkClipboard() {
         let pasteboard = NSPasteboard.general
         if let copiedText = pasteboard.string(forType: .string), copiedText != lastCopiedText {
-            lastCopiedText = copiedText
-            methodChannel?.invokeMethod("clipboardChanged", arguments: copiedText)
+            if !copiedItems.contains(copiedText) {  // Check if the copied item is not already in the set
+                lastCopiedText = copiedText
+                copiedItems.insert(copiedText)  // Add the new item to the set
+                methodChannel?.invokeMethod("clipboardChanged", arguments: copiedText)
+            }
         }
     }
 
@@ -79,17 +81,16 @@ class AppDelegate: FlutterAppDelegate, UNUserNotificationCenterDelegate {
         mainFlutterWindow?.minSize = NSSize(width: 350, height: 500)
     }
 
- @objc private func togglePopover(sender: AnyObject?) {
-     if let button = statusItem?.button {
-         if popover?.isShown == true {
-             popover?.performClose(sender)
-         } else {
-             popover?.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-             NSApp.activate(ignoringOtherApps: true)
-
-         }
-     }
- }
+    @objc private func togglePopover(sender: AnyObject?) {
+        if let button = statusItem?.button {
+            if popover?.isShown == true {
+                popover?.performClose(sender)
+            } else {
+                popover?.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+                NSApp.activate(ignoringOtherApps: true)
+            }
+        }
+    }
 
     // Implement UNUserNotificationCenterDelegate method
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

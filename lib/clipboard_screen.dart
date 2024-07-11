@@ -15,6 +15,7 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
   List<String> copiedTexts = [];
   List<String> favoriteTexts = [];
   static const MethodChannel _channel = MethodChannel('clipboard_monitor');
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
 
   @override
   void initState() {
@@ -27,11 +28,13 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
     if (call.method == 'clipboardChanged') {
       setState(() {
         copiedTexts.insert(0, call.arguments as String);
+        _listKey.currentState?.insertItem(0);
         _reorderCopiedTexts();
       });
     }
     return null;
   }
+
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       _channel.setMethodCallHandler(_handleMethod);
@@ -39,7 +42,14 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
       setState(() {});
     }
   }
+
   void deleteItem(int index) {
+    final text = copiedTexts[index];
+    _listKey.currentState?.removeItem(
+      index,
+          (context, animation) => _buildItem(context, text, animation, index),
+      duration: const Duration(milliseconds: 300),
+    );
     setState(() {
       copiedTexts.removeAt(index);
       _reorderCopiedTexts();
@@ -47,10 +57,33 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
   }
 
   void deleteAllItems() {
-    setState(() {
-      copiedTexts.clear();
-    });
+    final nonFavoriteIndexes = List<int>.generate(copiedTexts.length, (i) => i)
+        .where((i) => !favoriteTexts.contains(copiedTexts[i]))
+        .toList();
+
+    void removeNext() {
+      if (nonFavoriteIndexes.isNotEmpty) {
+        final index = nonFavoriteIndexes.removeLast();
+        final text = copiedTexts[index];
+
+        _listKey.currentState?.removeItem(
+          index,
+              (context, animation) => _buildItem(context, text, animation, index),
+          duration: const Duration(milliseconds: 300),
+        );
+
+        setState(() {
+          copiedTexts.removeAt(index);
+        });
+
+        // Delay the next removal to allow for animation
+        Future.delayed(const Duration(milliseconds: 300), removeNext);
+      }
+    }
+
+    removeNext();
   }
+
 
   void toggleFavorite(String text) async {
     setState(() {
@@ -78,6 +111,73 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
       favoriteTexts = prefs.getStringList('favorites') ?? [];
       _reorderCopiedTexts();
     });
+  }
+
+  Widget _buildItem(BuildContext context, String text, Animation<double> animation, int index) {
+    final isFavorite = favoriteTexts.contains(text);
+
+    return SlideTransition(
+      position: animation.drive(Tween<Offset>(
+        begin: const Offset(1, 0),
+        end: Offset.zero,
+      ).chain(CurveTween(curve: Curves.easeInOut))),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 12.0),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(8),
+          onTap: () {
+            Clipboard.setData(ClipboardData(text: text)); // Copy text to clipboard
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text(
+                  'Copied',
+                  style: TextStyle(color: Colors.white),
+                ),
+                backgroundColor: Color(0xff1E1F22),
+              ),
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              color: isFavorite ? Colors.yellow.withOpacity(0.2) : Colors.grey.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    toggleFavorite(text);
+                  },
+                  icon: Icon(
+                    isFavorite ? Icons.star : Icons.star_border,
+                    color: isFavorite ? Colors.yellow : Colors.grey,
+                    size: 20,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    text,
+                    maxLines: 6,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    deleteItem(index);
+                  },
+                  icon: const Icon(
+                    Icons.delete,
+                    size: 20,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -116,69 +216,11 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
               height: 24,
             ),
             Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: copiedTexts.length,
-                itemBuilder: (context, index) {
-                  final text = copiedTexts[index];
-                  final isFavorite = favoriteTexts.contains(text);
-
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 12.0),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(8),
-                      onTap: () {
-                        Clipboard.setData(ClipboardData(text: text)); // Copy text to clipboard
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              'Copied',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            backgroundColor: Color(0xff1E1F22),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: isFavorite ? Colors.yellow.withOpacity(0.2) : Colors.grey.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                toggleFavorite(text);
-                              },
-                              icon: Icon(
-                                isFavorite ? Icons.star : Icons.star_border,
-                                color: isFavorite ? Colors.yellow : Colors.grey,
-                                size: 20,
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Text(
-                                text,
-                                maxLines: 6,
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                deleteItem(index);
-                              },
-                              icon: const Icon(
-                                Icons.delete,
-                                size: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
+              child: AnimatedList(
+                key: _listKey,
+                initialItemCount: copiedTexts.length,
+                itemBuilder: (context, index, animation) {
+                  return _buildItem(context, copiedTexts[index], animation, index);
                 },
               ),
             )

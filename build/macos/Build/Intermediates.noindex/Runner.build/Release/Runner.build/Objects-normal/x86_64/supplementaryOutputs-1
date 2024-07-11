@@ -1,0 +1,9 @@
+"/Users/libsongeorge/GitHub/clipboard_mac/macos/Runner/MainFlutterWindow.swift":
+  objc-header: "/Users/libsongeorge/GitHub/clipboard_mac/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/x86_64/clipboard-Swift.h"
+  dependencies: "/Users/libsongeorge/GitHub/clipboard_mac/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/x86_64/Runner-master.d"
+  swiftmodule: "/Users/libsongeorge/GitHub/clipboard_mac/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/x86_64/clipboard.swiftmodule"
+  diagnostics: "/Users/libsongeorge/GitHub/clipboard_mac/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/x86_64/Runner-master.dia"
+  abi-baseline-json: "/Users/libsongeorge/GitHub/clipboard_mac/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/x86_64/clipboard.abi.json"
+  const-values: "/Users/libsongeorge/GitHub/clipboard_mac/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/x86_64/Runner-master.swiftconstvalues"
+  swiftdoc: "/Users/libsongeorge/GitHub/clipboard_mac/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/x86_64/clipboard.swiftdoc"
+  swiftsourceinfo: "/Users/libsongeorge/GitHub/clipboard_mac/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/x86_64/clipboard.swiftsourceinfo"
