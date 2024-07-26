@@ -48,7 +48,7 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
     _listKey.currentState?.removeItem(
       index,
           (context, animation) => _buildItem(context, text, animation, index),
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 100),
     );
     setState(() {
       copiedTexts.removeAt(index);
@@ -57,31 +57,17 @@ class _ClipboardListenerScreenState extends State<ClipboardListenerScreen> {
   }
 
   void deleteAllItems() {
+    // Generate a list of indexes for non-favorite items
     final nonFavoriteIndexes = List<int>.generate(copiedTexts.length, (i) => i)
         .where((i) => !favoriteTexts.contains(copiedTexts[i]))
         .toList();
 
-    void removeNext() {
-      if (nonFavoriteIndexes.isNotEmpty) {
-        final index = nonFavoriteIndexes.removeLast();
-        final text = copiedTexts[index];
-
-        _listKey.currentState?.removeItem(
-          index,
-              (context, animation) => _buildItem(context, text, animation, index),
-          duration: const Duration(milliseconds: 300),
-        );
-
-        setState(() {
-          copiedTexts.removeAt(index);
-        });
-
-        // Delay the next removal to allow for animation
-        Future.delayed(const Duration(milliseconds: 300), removeNext);
+    setState(() {
+      // Remove non-favorite items from the copiedTexts list
+      for (var i in nonFavoriteIndexes.reversed) {
+        copiedTexts.removeAt(i);
       }
-    }
-
-    removeNext();
+    });
   }
 
 
